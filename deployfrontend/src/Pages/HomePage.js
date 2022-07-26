@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 
 const HomePage = ({ servermessage, clientmessage, setClientMessage, sendReceiveMessage }) => {
-
+    console.log('hi')
     return (
         <div>
             <h1>
@@ -21,6 +21,7 @@ const HomePage = ({ servermessage, clientmessage, setClientMessage, sendReceiveM
             <button onClick={() => sendReceiveMessage()}>send</button>
 
         </div>
+
     )
 }
 
