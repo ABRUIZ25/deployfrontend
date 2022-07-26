@@ -9,6 +9,7 @@ function App() {
   const [clientMessage, setClientMessage] = useState('')
   const [serverMessage, setServerMessage] = useState('')
   const [userList, setUserList] = useState([])
+  const [userUpdateResponse, setUserUpdateResponse] = useState(null);
 
   const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 
@@ -38,17 +39,13 @@ function App() {
         },
 
       })
-
-
-
-
       const json = await response.json()
       console.log(json)
       setUserList(json)
       return json
     };
     fetchUser()
-  }, [])
+  }, [userUpdateResponse])
   return (
     <div className="App">
       <header className="App-header">
