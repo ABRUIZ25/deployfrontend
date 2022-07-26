@@ -2,15 +2,15 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 
-const HomePage = ({ servermessage, clientmessage, setClientMessage, sendReceiveMessage }) => {
-    console.log('hi')
+const HomePage = ({ serverMessage, clientMessage, setClientMessage, sendReceiveMessage }) => {
+
     return (
         <div>
             <h1>
                 home Page
             </h1>
-            <p>{clientmessage}</p>
-            <p>{servermessage}</p>
+            <p>{clientMessage}</p>
+            <p>{serverMessage}</p>
 
             <input placeholder="new client message" onChange={(event) => {
                 const dateTime = new Date()
