@@ -33,11 +33,10 @@ function App() {
         accept: "application.json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userData }),
+      body: JSON.stringify(userData),
       cache: "default",
     });
     const responseJSON = await response.json();
-    setServerMessage(responseJSON);
   };
 
   return (

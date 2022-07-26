@@ -15,8 +15,12 @@ const PostUser = ({ postUserData }) => {
         placeholder="Last Name"
         onChange={(e) => setLastName(e.target.value)}
       />
-      <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-      <button onClick={(e) => postUserData(firstName, lastName, email)}>
+      <input
+        type="email"
+        placeholder="Email"
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button onClick={(e) => postUserData({ firstName, lastName, email })}>
         Submit
       </button>
     </div>
