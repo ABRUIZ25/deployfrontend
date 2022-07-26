@@ -30,11 +30,9 @@ function App() {
     const response = await fetch(url, {
       method: "POST",
       headers: {
-        accept: "application.json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userData),
-      cache: "default",
     });
     const responseJSON = await response.json();
   };
