@@ -2,12 +2,6 @@ import './App.css';
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
-// - In <HomePage />, implement the following:
-// - Display clientMessage and serverMessage
-//   - Add a text input field that sets clientMessage to the following:
-// - const dateTime = new Date()
-//   - `Message: ${e.target.value} at time ${dateTime.toString()}`
-//   - Add a button called Send that calls the sendReceiveMessage function from props
 
 
 function App() {
