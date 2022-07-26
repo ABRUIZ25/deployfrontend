@@ -5,8 +5,12 @@ import HomePage from "./Pages/HomePage";
 import PostUser from "./Pages/PostUser";
 
 function App() {
-  const [clientMessage, setClientMessage] = useState("");
-  const [serverMessage, setServerMessage] = useState("");
+
+
+  const [clientMessage, setClientMessage] = useState('')
+  const [serverMessage, setServerMessage] = useState('')
+  const [userList, setUserList] = useState([])
+
   const [userUpdateResponse, setUserUpdateResponse] = useState(null);
 
   const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
@@ -20,6 +24,7 @@ function App() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ clientMessage }),
+
       cache: "default",
     });
     const responseJSON = await response.json();
@@ -39,26 +44,40 @@ function App() {
     setUserUpdateResponse(responseJSON);
   };
 
+
+   
+  useEffect(() => {
+    const fetchUser = async () => {
+
+      const response = await fetch(`${urlEndpoint}/get-users`, {
+        method: 'GET',
+        headers: {
+          accept: 'application.json',
+          'Content-Type': 'application/json'
+        },
+
+      })
+      const json = await response.json()
+      console.log(json)
+      setUserList(json)
+      return json
+    };
+    fetchUser()
+  }, [userUpdateResponse])
+
   return (
     <div className="App">
       <header className="App-header">
         <div>hello</div>
         <Routes>
-          <Route
-            index
-            element={
-              <HomePage
-                clientMessage={clientMessage}
-                setClientMessage={setClientMessage}
-                serverMessage={serverMessage}
-                sendReceiveMessage={sendReceiveMessage}
-              />
-            }
-          />
+         
           <Route
             path="/post-user"
             element={<PostUser postUserData={postUserData} />}
           />
+
+          <Route index element={<HomePage clientMessage={clientMessage} setClientMessage={setClientMessage} serverMessage={serverMessage} sendReceiveMessage={sendReceiveMessage} userList={userList} />} />
+
         </Routes>
       </header>
     </div>
