@@ -24,7 +24,7 @@ function App() {
       cache: 'default'
     })
     const responseJSON = await response.json()
-    setServerMessage(responseJSON.serverMessage)
+    setServerMessage(responseJSON)
 
   }
   return (
