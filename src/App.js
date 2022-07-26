@@ -7,6 +7,7 @@ import PostUser from "./Pages/PostUser";
 function App() {
   const [clientMessage, setClientMessage] = useState("");
   const [serverMessage, setServerMessage] = useState("");
+  const [userUpdateResponse, setUserUpdateResponse] = useState(null);
 
   const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 
@@ -35,6 +36,7 @@ function App() {
       body: JSON.stringify(userData),
     });
     const responseJSON = await response.json();
+    setUserUpdateResponse(responseJSON);
   };
 
   return (
